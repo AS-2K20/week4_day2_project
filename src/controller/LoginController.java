@@ -14,8 +14,6 @@ import dao.UserDAO;
 import model.User;
 
 
-
-
 @WebServlet(urlPatterns= {"/login"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,7 +35,8 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password"); //  get the password value from the jsp/html page
 
 		// Fill your code
-		
+		User user = null;
+		UserDAO userdao = null;
 		boolean validateUser = userdao.loginUser(user);
 		if(validateUser) {
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/blogView.jsp");
